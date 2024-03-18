@@ -1,11 +1,13 @@
-import { Login } from '@/pages/login/internal/Login.component';
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from '@/features/routes/AppRoutes';
 import './App.css'
 
-function App() {
-
+const App = () => {
   return (
-    <Login />
-  )
-}
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;

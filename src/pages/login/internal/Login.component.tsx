@@ -1,19 +1,16 @@
-import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, TextField, Button, Typography } from '@/library/mui/index';
 import { LoginValidation } from '@/validations/schema';
-// import { TextField } from '@/features/TextField'
 import { LoginProps } from './Login.types';
+import { useHooks } from './Login.hooks';
 
 export const Login = () => {
 const { control, handleSubmit, formState: { errors } } = useForm<LoginProps>({
     resolver: yupResolver(LoginValidation)
 });
 
-const onSubmit: SubmitHandler<LoginProps> = data => {
-    console.log(data);
-    // 送信処理
-};
+const { onSubmit } = useHooks();
 
 return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ 
